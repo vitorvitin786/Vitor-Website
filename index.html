@@ -140,6 +140,22 @@
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
+    .social-feeds {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    .feed {
+      width: 32%; /* Adjust width for the desired size */
+      background: #1e2a38;
+      padding: 15px;
+      border-radius: 10px;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -190,6 +206,29 @@
         <h3>Post Title 3</h3>
         <p>Maybe your latest YouTube short or Discord event.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Social Media Feeds Section -->
+  <section class="social-feeds">
+    <div class="feed">
+      <!-- TikTok Feed Embed Code -->
+      <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
+      <script type="text/javascript">
+        (function(){
+          var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+          i.src="https://cdn.curator.io/published/7361e783-c98b-478d-85bb-77bdab3ef22c.js";
+          e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+        })();
+      </script>
+    </div>
+    <div class="feed">
+      <!-- Instagram Feed Embed Code (from a service like Flockler) -->
+      <!-- Place your Instagram embed code here -->
+    </div>
+    <div class="feed">
+      <!-- YouTube Feed Embed Code -->
+      <!-- Place your YouTube embed code here -->
     </div>
   </section>
 
