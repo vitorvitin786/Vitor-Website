@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Website Code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .textarea {
+      width: 100%;
+      height: 500px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Admin - Edit Website Code</h1>
+  
+  <textarea id="website-code" class="textarea"></textarea>
+
+  <button id="save-btn" class="submit-btn">Save Changes</button>
+
+  <script>
+    // Load the current HTML code (for simplicity, we assume you load it via a backend API)
+    fetch('/admin/get-website-code')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("website-code").value = data;
+      });
+
+    // Save the new code (sending the new HTML to the server)
+    document.getElementById("save-btn").addEventListener("click", function() {
+      const newCode = document.getElementById("website-code").value;
+
+      fetch('/admin/save-website-code', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ html: newCode }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert("Website code updated successfully!");
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("Failed to save the changes.");
+      });
+    });
+  </script>
+</body>
+</html>
