@@ -73,54 +73,6 @@
     .card:nth-child(3) { animation-delay: 0.6s; }
     .card:nth-child(4) { animation-delay: 0.8s; }
 
-    .posts {
-      margin: 60px auto 40px;
-      padding: 20px;
-      max-width: 900px;
-    }
-
-    .posts h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    .post-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .post {
-      background: #1e2a38;
-      padding: 15px;
-      border-radius: 10px;
-      width: 260px;
-      transition: 0.3s;
-    }
-
-    .post img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .post h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2em;
-      color: #fff;
-    }
-
-    .post p {
-      color: #ccc;
-      font-size: 0.95em;
-    }
-
-    .post:hover {
-      background: #283d53;
-      transform: translateY(-5px);
-    }
-
     footer {
       margin-top: 60px;
       padding: 20px;
@@ -155,6 +107,24 @@
       padding: 15px;
       border-radius: 10px;
       height: auto;
+      overflow: hidden;
+    }
+
+    .feed iframe {
+      width: 100%;
+      height: 400px; /* Adjust the height of the embed */
+      border: none;
+    }
+
+    /* Media Query for mobile responsiveness */
+    @media screen and (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+      }
+      .feed {
+        width: 100%;
+        margin-bottom: 20px;
+      }
     }
   </style>
 </head>
@@ -188,31 +158,10 @@
     <img src="https://visitor-badge.laobi.icu/badge?page_id=vitorvitin786.Vitor-Website" alt="visitor badge"/>
   </div>
 
-  <section class="posts">
-    <h2>Latest Posts</h2>
-    <div class="post-list">
-      <div class="post">
-        <img src="https://via.placeholder.com/260x150" alt="Post thumbnail">
-        <h3>Post Title 1</h3>
-        <p>A recent update or video shared by Vitor.</p>
-      </div>
-      <div class="post">
-        <img src="https://via.placeholder.com/260x150" alt="Post thumbnail">
-        <h3>Post Title 2</h3>
-        <p>Another cool moment from TikTok or Instagram!</p>
-      </div>
-      <div class="post">
-        <img src="https://via.placeholder.com/260x150" alt="Post thumbnail">
-        <h3>Post Title 3</h3>
-        <p>Maybe your latest YouTube short or Discord event.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Social Media Feeds Section -->
   <section class="social-feeds">
     <div class="feed">
-      <!-- TikTok Feed Embed Code -->
+      <!-- TikTok Embed Code -->
       <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
       <script type="text/javascript">
         (function(){
@@ -223,19 +172,35 @@
       </script>
     </div>
     <div class="feed">
-      <!-- Instagram Feed Embed Code (from a service like Flockler) -->
-      <!-- Place your Instagram embed code here -->
+      <!-- Instagram Feed Embed Code -->
+      <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
+      <script type="text/javascript">
+        (function(){
+          var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+          i.src="https://cdn.curator.io/published/7361e783-c98b-478d-85bb-77bdab3ef22c.js";
+          e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+        })();
+      </script>
     </div>
     <div class="feed">
       <!-- YouTube Feed Embed Code -->
-      <!-- Place your YouTube embed code here -->
+      <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=vitor_gaming" title="YouTube Channel Feed"></iframe>
     </div>
   </section>
 
   <footer>
     © 2025 Vitor | Built with passion and purpose
-    <div class="version">Website Version: 1.2</div>
+    <div class="version">Website Version: 1.4</div>
   </footer>
+
+  <script>
+    // Visitor tracking using localStorage to prevent farming the visitor count
+    if (!localStorage.getItem('visited')) {
+      localStorage.setItem('visited', 'true');
+      // Increment visitor count logic (visits can be stored on the server-side for persistence)
+      // Example: Update the visitor badge count on a server or a cloud service here
+    }
+  </script>
 
 </body>
 </html>
