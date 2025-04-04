@@ -73,13 +73,67 @@
     .card:nth-child(3) { animation-delay: 0.6s; }
     .card:nth-child(4) { animation-delay: 0.8s; }
 
+    .posts {
+      margin: 60px auto 40px;
+      padding: 20px;
+      max-width: 900px;
+    }
+
+    .posts h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .post-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .post {
+      background: #1e2a38;
+      padding: 15px;
+      border-radius: 10px;
+      width: 260px;
+      transition: 0.3s;
+    }
+
+    .post img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .post h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+      color: #fff;
+    }
+
+    .post p {
+      color: #ccc;
+      font-size: 0.95em;
+    }
+
+    .post:hover {
+      background: #283d53;
+      transform: translateY(-5px);
+    }
+
     footer {
-      margin-top: 40px;
+      margin-top: 60px;
       padding: 20px;
       background: #111;
       color: #aaa;
       font-size: 0.9em;
       animation: fadeIn 1s ease;
+    }
+
+    .version {
+      margin-top: 10px;
+      color: #666;
+      font-size: 0.8em;
     }
 
     @keyframes fadeIn {
@@ -118,8 +172,30 @@
     <img src="https://visitor-badge.laobi.icu/badge?page_id=vitorvitin786.Vitor-Website" alt="visitor badge"/>
   </div>
 
+  <section class="posts">
+    <h2>Latest Posts</h2>
+    <div class="post-list">
+      <div class="post">
+        <img src="https://via.placeholder.com/260x150" alt="Post thumbnail">
+        <h3>Post Title 1</h3>
+        <p>A recent update or video shared by Vitor.</p>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/260x150" alt="Post thumbnail">
+        <h3>Post Title 2</h3>
+        <p>Another cool moment from TikTok or Instagram!</p>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/260x150" alt="Post thumbnail">
+        <h3>Post Title 3</h3>
+        <p>Maybe your latest YouTube short or Discord event.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     © 2025 Vitor | Built with passion and purpose
+    <div class="version">Website Version: 1.2</div>
   </footer>
 
 </body>
