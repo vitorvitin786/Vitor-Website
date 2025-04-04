@@ -1,40 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitor's Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Vitor's Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: #ccc;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1e2a38;
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      transition: 0.3s;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #283d53;
+    }
+
+    .card img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .card a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      background: #111;
+      color: #aaa;
+      font-size: 0.9em;
+      animation: fadeIn 1s ease;
+    }
+
+    .version {
+      margin-top: 10px;
+      color: #666;
+      font-size: 0.8em;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .social-feeds {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    .feed {
+      width: 32%; /* Adjust width for the desired size */
+      background: #1e2a38;
+      padding: 15px;
+      border-radius: 10px;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .feed iframe {
+      width: 100%;
+      height: 400px; /* Adjust the height of the embed */
+      border: none;
+    }
+
+    /* Media Query for mobile responsiveness */
+    @media screen and (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+      }
+      .feed {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Main Content -->
-    <div class="content">
-        <h1>Welcome to Vitor's Website</h1>
-        <p>Explore my social media links and more!</p>
-        
-        <!-- Social Media Links -->
-        <div class="socials">
-            <a href="https://www.tiktok.com/@god_jesus_is_thesavior?_t=ZP-8vFslBqiCuV&_r=1" target="_blank">
-                <img src="tiktok-logo.png" alt="TikTok" width="50" height="50">
-            </a>
-            <a href="https://www.instagram.com/vitor_gabriel__aguiar_victor/profilecard/?igsh=ODU3Mm10NWU2ZDZi" target="_blank">
-                <img src="instagram-logo.png" alt="Instagram" width="50" height="50">
-            </a>
-            <a href="https://discord.gg/cyWWAhcpFf" target="_blank">
-                <img src="discord-logo.png" alt="Discord" width="50" height="50">
-            </a>
-        </div>
+  <header>
+    <h1>Vitor</h1>
+    <p>From Brazil — Living in the U.S. since age 4<br>Check out my content & community below!</p>
+  </header>
 
-        <!-- Admin Button -->
-        <a href="/admin" class="admin-button">
-            <button>Admin Page</button>
-        </a>
+  <div class="card-container">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/TikTok_logo.svg" alt="TikTok Logo">
+      <a href="https://www.tiktok.com/@god_jesus_is_thesavior?_t=ZP-8vFslBqiCuV&_r=1" target="_blank">Follow me on TikTok</a>
     </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+      <a href="https://www.instagram.com/vitor_gabriel__aguiar_victor/profilecard/?igsh=ODU3Mm10NWU2ZDZi" target="_blank">Follow me on Instagram</a>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord Logo">
+      <a href="https://discord.gg/cyWWAhcpFf" target="_blank">Join my Discord</a>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube%28amin%29.png" alt="YouTube Logo">
+      <a href="https://youtube.com/@vitor_gaming?si=cM_uToxGWWLPmKuU" target="_blank">Subscribe on YouTube</a>
+    </div>
+  </div>
 
-    <footer>
-        <p>Version 1.0.0 - Vitor's Website</p>
-    </footer>
+  <div>
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=vitorvitin786.Vitor-Website" alt="visitor badge"/>
+  </div>
+
+  <!-- Social Media Feeds Section -->
+  <section class="social-feeds">
+    <div class="feed">
+      <!-- TikTok Embed Code -->
+      <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
+      <script type="text/javascript">
+        (function(){
+          var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+          i.src="https://cdn.curator.io/published/7361e783-c98b-478d-85bb-77bdab3ef22c.js";
+          e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+        })();
+      </script>
+    </div>
+    <div class="feed">
+      <!-- Instagram Feed Embed Code -->
+      <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
+      <script type="text/javascript">
+        (function(){
+          var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+          i.src="https://cdn.curator.io/published/7361e783-c98b-478d-85bb-77bdab3ef22c.js";
+          e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+        })();
+      </script>
+    </div>
+    <div class="feed">
+      <!-- YouTube Feed Embed Code -->
+      <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=vitor_gaming" title="YouTube Channel Feed"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Vitor | Built with passion and purpose
+    <div class="version">Website Version: 1.4</div>
+  </footer>
+
+  <script>
+    // Visitor tracking using localStorage to prevent farming the visitor count
+    if (!localStorage.getItem('visited')) {
+      localStorage.setItem('visited', 'true');
+      // Increment visitor count logic (visits can be stored on the server-side for persistence)
+      // Example: Update the visitor badge count on a server or a cloud service here
+    }
+  </script>
 
 </body>
 </html>
