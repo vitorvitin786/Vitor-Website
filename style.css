@@ -1,0 +1,101 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Main Content */
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Social Media Links */
+.socials {
+    margin-top: 20px;
+}
+
+.socials a {
+    margin: 10px;
+    display: inline-block;
+}
+
+.admin-button {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.admin-button button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.admin-button button:hover {
+    background-color: #45a049;
+}
+
+/* Admin Login Form */
+.admin-login {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.admin-login form {
+    margin-top: 20px;
+}
+
+.admin-login input {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.admin-login button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.admin-login button:hover {
+    background-color: #0056b3;
+}
+
+/* Editor Page */
+.editor {
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.editor textarea {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
