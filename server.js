@@ -1,58 +1,81 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs');
-const path = require('path');
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const fs = require("fs");
 const app = express();
 const port = 3000;
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static('public')); // Serve static files (like CSS and images)
+// Use body parser to parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
-// Static files (like CSS and images)
-app.use('/static', express.static(path.join(__dirname, 'public')));
-
-// Serve the main page (index.html)
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// Admin Login Route
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin.html'));
-});
-
-// Admin Login Post Route
-app.post('/admin/login', (req, res) => {
-  const passcode = req.body.passcode;
-  if (passcode === '201109') {
-    res.redirect('/admin/editor');
-  } else {
-    res.send('Incorrect passcode');
-  }
-});
-
-// Editor Page (Only accessible after login)
-app.get('/admin/editor', (req, res) => {
-  res.sendFile(path.join(__dirname, 'editor.html'));
-});
-
-// Save Changes (Editor Post Route)
-app.post('/admin/save', (req, res) => {
-  const newHtmlContent = req.body.htmlContent;
-
-  // Write new HTML content to the index.html file
-  fs.writeFile(path.join(__dirname, 'index.html'), newHtmlContent, (err) => {
+// Serve the current HTML content (index.html)
+app.get("/", (req, res) => {
+  fs.readFile("index.html", "utf-8", (err, data) => {
     if (err) {
-      return res.send('Error saving file');
+      res.status(500).send("Error reading the index.html file.");
+    } else {
+      res.send(data);
     }
-    res.send('File saved successfully');
   });
 });
 
-// Start the server
+// Admin login page to input the secret code
+app.get("/admin", (req, res) => {
+  res.send(`
+    <html>
+      <body>
+        <h2>Admin Login</h2>
+        <form action="/admin" method="POST">
+          <label for="code">Enter Code: </label>
+          <input type="text" id="code" name="code">
+          <input type="submit" value="Submit">
+        </form>
+      </body>
+    </html>
+  `);
+});
+
+// Handle admin login and show the HTML editor if the code is correct
+app.post("/admin", (req, res) => {
+  const { code } = req.body;
+
+  if (code === "201109") {
+    // Show the HTML editor page
+    fs.readFile("index.html", "utf-8", (err, data) => {
+      if (err) {
+        res.status(500).send("Error reading the index.html file.");
+      } else {
+        res.send(`
+          <html>
+            <body>
+              <h2>Admin Panel</h2>
+              <form action="/save" method="POST">
+                <textarea name="htmlCode" rows="20" cols="100">${data}</textarea><br><br>
+                <input type="submit" value="Save Changes">
+              </form>
+            </body>
+          </html>
+        `);
+      }
+    });
+  } else {
+    res.send("Invalid Code.");
+  }
+});
+
+// Save the updated HTML content when the admin submits the form
+app.post("/save", (req, res) => {
+  const { htmlCode } = req.body;
+
+  fs.writeFile("index.html", htmlCode, "utf-8", (err) => {
+    if (err) {
+      res.status(500).send("Error saving the HTML file.");
+    } else {
+      res.send("Website updated successfully! <a href='/'>Go to website</a>");
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
